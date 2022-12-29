@@ -1,0 +1,87 @@
+.card{
+    width: 75%;
+    margin: 50px auto;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+}
+.card_head{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem;
+    border-bottom: 4px solid var(--cerise);
+}
+.backBtn{
+    width: 35%;
+    height: 3rem;
+    font-size: 1.5rem;
+    color: var(--blueCrayola);
+    border: none;
+    border-radius: 2px;
+    text-align: start;
+    margin-left: 15px;
+    transition: all 0.3s ease-in;
+    background-color: var(--white);
+    opacity: 0.5;
+}
+.backBtn:hover{
+    cursor: pointer;
+    background-color: var(--cerise);
+}
+.promo{
+    padding-top: 0.4rem ;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: var(--royalDarkBlue);
+}
+.card_title{
+    margin-top: -15px;
+    margin-bottom: 5px;
+    color: var(--royalDarkBlue);
+}
+.card_body{
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.image{
+    padding:.5rem 0rem;
+    object-fit: cover;
+}
+.right{
+    padding: 1rem;
+}
+.card_text{
+    font-size: 1.rem;
+}
+.description{
+    padding:7rem 1.5rem;
+    margin: 4rem -3rem 4rem 0;
+    background-color: var(--blueCrayola);
+}
+.item_footer{
+    height: 10vh;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 1rem;
+    border-top: 4px solid var(--cerise);
+    background-color: var(--royalDarkBlue);
+}
+.orderBtn{
+    width: 30%;
+    height: 3rem;
+    font-size: 1.5rem;
+    color: var(--royalDarkBlue);
+    border: none;
+    border-radius: 2px;
+    padding-left: 3px;
+    background-color:var(--blueCrayola);
+    transition: all 0.3s ease-in;
+    opacity: 0.5; 
+}
+.orderBtn:hover{
+    cursor: pointer;
+    background-color: var(--cerise);
+}

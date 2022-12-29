@@ -1,0 +1,88 @@
+.header{
+    width: 100%;
+    height: 4rem;
+    margin-top: 0;
+    padding-top: 10px;
+    color: var(--font);
+    box-shadow:0px 1px 5px 3px rgba(0,0,0,0.12);
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    background-image: linear-gradient(-5deg, var(--blueCrayola), var(--royalDarkBlue));
+}
+.logo{
+    font-size: 30px;
+    grid-column: 1/span 1;
+    padding-left: 10px;
+    color: var(--blueCrayola);
+    cursor: default;
+}
+.ul{
+    grid-column: 2/span 1;
+}
+.li {
+    list-style-type: none;
+    font-size: 20px ;
+    padding-top: 7px;
+}
+.li_link{
+    text-decoration: none;
+    color: var(--royalDarkBlue);
+    transition: 0.3s;
+}
+.li_link:hover{
+    color: var(--cerise);
+}
+.link {
+    text-decoration: none;
+    color: var(--font);
+    transition: all 0.2s;
+}
+.link:hover{
+    cursor: pointer;
+    color: var(--cerise);
+}
+.badge{
+    padding: 10px 15px 0 15px;
+    border-radius: 50px;
+    background-color: var(--royalDarkBlue);
+    color: var(--cerise);
+    font-size: 25px;
+    grid-column: 6/span 1;
+    justify-self: center;
+    scale: 0.70;
+    cursor: default;
+}
+.btn_link{
+    padding: 0 15px;
+    grid-column: 7/span 1;
+    scale: 0.75;
+}
+.btn{
+    height: 50px;
+    width: 100%;
+    font-size: 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in;
+    background-color: var(--white);
+    border: var(--wblueCrayolahite);
+    color: var(--font);
+}
+.btn:hover{
+    cursor: pointer;
+    background: var(--cerise);
+    border: 0.5px solid var(--cerise);
+    color: var(--royalDarkBlue);
+}
+.searchBar{
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    padding-left: 1rem;
+    grid-column: 3/6;
+    grid-row: 1/2;
+    margin-bottom: 8px;
+}
+.searchBar:focus{
+    outline: none;
+}

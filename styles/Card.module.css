@@ -1,0 +1,82 @@
+.pcard{
+    box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    height: 530px;
+    background:rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    overflow: hidden;
+}
+.imgBx {
+    display: flex;
+    width: 100%;
+    height: 60%;
+    justify-content: center;
+    margin-top: 10px;
+}
+.imgBx img {
+    border-radius: 5px;
+    width: 300px;
+    height: 320px;
+    object-fit: cover;
+}
+.favorite i{
+    opacity: 0;
+    transform: translateY(20px);
+    transition: .5s;
+}
+.contentBx{
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+}
+.contentBx h2 {
+    margin-top: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--cerise);
+}
+.contentBx button {
+    display: inline-block;
+    padding: 5px 20px;
+    background: #fff;
+    border: none;
+    border-bottom:1px solid var(--cerise);
+    margin-top: 50px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    background-color: var(--deluge);
+    color: var(--cerise);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: .5s;
+}
+.pcard:hover .contentBx button {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: .3s;
+} 
+.price {
+    padding-bottom: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--cerise);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: .5s;
+}
+.old {
+    text-decoration: line-through;
+}
+.pcard:hover .contentBx h5 {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: .4s;
+}
+.pcard:hover .favorite i {
+    opacity: 1;
+    transform: translateY(0px);
+}
