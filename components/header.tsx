@@ -1,6 +1,19 @@
 import Link from "next/link";
+import { FC, useEffect } from "react";
+import { IQuary } from "../interfaces/quary";
 import style from "../styles/Header.module.css"
-const Header = () => {
+// import debounce from 'lodash.debounce';
+interface IHeader { 
+    searchBar : (s:string) => void
+}
+
+
+const Header: FC<IHeader> = (props) => {
+
+    const updateQuery = (e: React.FormEvent<HTMLInputElement>) => props.searchBar(e.currentTarget.value);
+    
+    // const debounceOnChange = debounce(updateQuery, 400);
+    
 
     return (
         <>
@@ -20,6 +33,7 @@ const Header = () => {
                     type="search"
                     className={style.searchBar}
                     placeholder="search here"
+                    onChange={updateQuery}
                 >
                 </input>
             </header>
