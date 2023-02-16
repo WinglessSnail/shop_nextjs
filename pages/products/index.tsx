@@ -1,4 +1,4 @@
-import { FC, useEffect, useReducer, useRef, useState, useSyncExternalStore } from "react"
+import { ChangeEvent, FC, useEffect, useReducer, useRef, useState, useSyncExternalStore } from "react"
 import Footer from "../../components/footer"
 import Header from "../../components/header"
 import { Card } from "../../components/product/card"
@@ -26,6 +26,7 @@ function reducer(state: IProduct[], action: stateAction) {
     const { type, payload } = action
     switch (type) {
         case ACTIONS.ASCENDING:
+            console.log("state action", [...state.sort((a: IProduct, b: IProduct) => a.price - b.price)]);
             return [...state.sort((a: IProduct, b: IProduct) => a.price - b.price)];
         case ACTIONS.DESCENDING:
             return [...state.sort((a: IProduct, b: IProduct) => b.price - a.price)];
@@ -46,21 +47,30 @@ function reducer(state: IProduct[], action: stateAction) {
 const Products: FC<IProductsPage> = (props) => {
 
     const [search, setSearch] = useState("");
-    const [products, dispatch] = useReducer(reducer, []);
+    const [products, dispatch] = useReducer(reducer, props.products);
 
-    useEffect(() => {   
+    useEffect(() => {
 
         const searchResult = props.products.filter(
             (product) =>
                 product.title.toLowerCase().includes(search) ||
                 product.description.toLowerCase().includes(search)
         )
-        // console.log(searchResult);
         dispatch({ type: ACTIONS.SET, payload: searchResult });
-        console.log(dispatch({ type: ACTIONS.SET, payload: searchResult }));
 
+    }, [search]);
+
+
+    const handleSort = (e: ChangeEvent<HTMLSelectElement>) => {
+        console.log(e.target.value);
+        if (e.target.value === ACTIONS.ASCENDING) {
+            dispatch({ type: ACTIONS.ASCENDING, payload: products })
+        } else {
+            dispatch({ type: ACTIONS.DESCENDING, payload: products })
+        }
     }
-        , [search]);
+
+
 
     return (
         <>
@@ -69,13 +79,13 @@ const Products: FC<IProductsPage> = (props) => {
                 <label className={styles.filter_label}>
                     Price filters :{" "}
                 </label>
-                <select name="filter" id={styles.filter}>
-                    <option value="ascending" onClick={()=> dispatch({ type: ACTIONS.ASCENDING, payload: props.products})}>ascending</option>
-                    <option value="descending" onClick={()=> dispatch({ type: ACTIONS.DESCENDING, payload: props.products})}>descending</option>
+                <select name="filter" onChange={handleSort} id={styles.filter}>
+                    <option value={ACTIONS.ASCENDING} >ascending</option>
+                    <option value={ACTIONS.DESCENDING}>descending</option>
                 </select>
             </form>
             <div className={styles.grid}>
-                {props.products.map(Product =>
+                {products.map(Product =>
                     <Card key={Product.id} {...Product} />
                 )}
             </div>

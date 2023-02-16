@@ -3,6 +3,7 @@ import { FC, useRef, useState } from "react"
 import Header from "../components/login/header"
 import { IUser } from "../interfaces/users"
 import styles from "../styles/Login.module.css"
+import handleLogin from "./api/login"
 
 interface ILoginPage {
   users: IUser[]
@@ -17,16 +18,17 @@ const Login: FC<ILoginPage> = (props) => {
   const login = useRouter()
 
   const handleLoginClick = () => {
+
     const user = props.users.find(
       (u) => u.name === name && u.password === password
     );
     if (user) {
       login.push("/products")
     } else {
-      // login.push("/signUp")
       alert("wrong user name or password")
     }
   }
+
 
   const handleNameKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if(e.key === "Enter"){
@@ -42,7 +44,6 @@ const Login: FC<ILoginPage> = (props) => {
     if (user) {
       login.push("/products")
     } else {
-      // login.push("/signUp")
       alert("wrong user name or password")
     }
     }
